@@ -1,0 +1,63 @@
+'''Fortnite Boogie Bomb CircuitPython code update
+Will run on Feather M0 Express & Feather M4 Express boards
+with Adafruit Prop-maker board, speaker, 
+NeoPixels, & microswitch.
+
+Written by Amelia 
+Thanks to Ray Gun Project, Adafruit, & thea.codes.
+'''
+
+import board
+import neopixel
+import digitalio
+from audiocore import WaveFile
+from audioio import AudioOut
+from adafruit_led_animation.animation.rainbow import Rainbow
+from adafruit_led_animation.animation.rainbowcomet import RainbowComet
+
+# Propmaker Setup
+POWER_PIN = board.D10
+enable = digitalio.DigitalInOut(POWER_PIN)
+enable.direction = digitalio.Direction.OUTPUT
+enable.value = True
+enable.switch_to_input(pull=digitalio.Pull.UP)
+
+# Button Setup
+button = digitalio.DigitalInOut(board.D9)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+# Neopixel Setup
+PIX_PIN = board.D5
+num_pixels = 32
+pixels = neopixel.NeoPixel(PIX_PIN, num_pixels, brightness=.3, 
+                           auto_write=False)
+
+rainbow = Rainbow(pixels, speed=.1, period=4)
+rainbow_comet = RainbowComet(pixels, speed=0.008, tail_length=24, bounce=True)
+
+# Audio Setup
+AUDIO_PIN = board.A0
+wave_file = open("Boogie.wav", "rb")
+wave = WaveFile(wave_file)
+audio = AudioOut(AUDIO_PIN)
+
+can_play = False
+
+# Main Loop
+while True:
+    if button.value:
+        audio.stop()
+        can_play = True
+        print("safe")
+        rainbow.animate()
+
+    else:
+        print("bombed")
+
+        if can_play:
+            audio.play(wave)
+            print("started playing!")
+            can_play = False
+
+        rainbow_comet.animate()
