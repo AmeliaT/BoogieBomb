@@ -10,18 +10,25 @@ I printed the files in black, white, gold, and grey/silver, per the original ins
 
 I used the following components:
 Adafruit Feather M0 Express : https://www.adafruit.com/product/3403
+
 Adafruit Prop-Maker FeatherWing: https://www.adafruit.com/product/3988
+
 Headers: https://www.adafruit.com/product/2886
+
 On-Off Power Button / Pushbutton Toggle Switch: https://www.adafruit.com/product/1683
+
 Lithium Ion Polymer Battery - 3.7v 350mAh: https://www.adafruit.com/product/2750
 
 Thin Plastic Speaker w/Wires - 8 ohm 0.25W: https://www.adafruit.com/product/1891
+
 Molex Pico Blade 2-pin Cable - 200mm: https://www.adafruit.com/product/3922
 
 NeoPixels (I used 2 x 16 pixel strips of the 144/m variety for a total of 32 pixels)
+
 JST PH 3-pin Plug Cable: https://www.adafruit.com/product/4336
 
 MicroSwitch: https://www.amazon.com/URBESTAC-Momentary-Hinge-Roller-Switches/dp/B00MFRMFS6/ref=sr_1_3?ie=UTF8&qid=1519328212&sr=8-3&keywords=micro+switch
+
 Lynch Pin: https://www.homedepot.com/p/Everbilt-3-16-in-x-1-1-2-in-Zinc-Plated-Lynch-Pin-815528/204276207
 
 I pulled a cleaner audio file and have included the wave file needed to run the code.
